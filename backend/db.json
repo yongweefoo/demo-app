@@ -1,0 +1,6 @@
+{
+  "tasks": [
+    { "id": "1", "title": "Set up project", "status": "done", "createdAt": "2025-01-01" },
+    { "id": "2", "title": "Write demo script", "status": "in-progress", "createdAt": "2025-01-02" }
+  ]
+}
