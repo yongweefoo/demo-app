@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+
 export default function Tasks({ user, onLogout }) {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
@@ -35,6 +36,8 @@ export default function Tasks({ user, onLogout }) {
           <tr style={{ background: '#f0f0f0' }}>
             <th style={{ padding: 8, textAlign: 'left' }}>Title</th>
             <th style={{ padding: 8, textAlign: 'left' }}>Status</th>
+            // Add to table headers
+            <th style={{ padding: 8, textAlign: 'left' }}>Priority</th>  {/* ← INSERT HERE */}
             <th style={{ padding: 8, textAlign: 'left' }}>Created</th>
           </tr>
         </thead>
@@ -43,6 +46,16 @@ export default function Tasks({ user, onLogout }) {
             <tr key={t.id} style={{ borderBottom: '1px solid #eee' }}>
               <td style={{ padding: 8 }}>{t.title}</td>
               <td style={{ padding: 8 }}>{t.status}</td>
+              // Add to table rows
+              <td style={{ padding: 8 }}>
+                <span style={{
+                  background: t.priority === 'high' ? '#ffebeb' : '#ebf5eb',
+                  color: t.priority === 'high' ? '#cc0000' : '#006600',
+                  padding: '2px 8px', borderRadius: 12, fontSize: 12
+                }}>
+                  {t.priority || 'normal'}
+                </span>
+              </td>
               <td style={{ padding: 8 }}>{t.createdAt?.slice(0, 10)}</td>
             </tr>
           ))}
