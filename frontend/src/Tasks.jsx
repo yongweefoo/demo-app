@@ -34,7 +34,6 @@ export default function Tasks({ user, onLogout }) {
           <tr style={{ background: '#f0f0f0' }}>
             <th style={{ padding: 8, textAlign: 'left' }}>Title</th>
             <th style={{ padding: 8, textAlign: 'left' }}>Status</th>
-            <th style={{ padding: 8, textAlign: 'left' }}>Priority</th>
             <th style={{ padding: 8, textAlign: 'left' }}>Created</th>
           </tr>
         </thead>
@@ -42,18 +41,7 @@ export default function Tasks({ user, onLogout }) {
           {tasks.map(t => (
             <tr key={t.id} style={{ borderBottom: '1px solid #eee' }}>
               <td style={{ padding: 8 }}>{t.title}</td>
-              <td style={{ padding: 8 }}>{t.status}</td>
-              <td style={{ padding: 8 }}>
-                <span style={{
-                  background: t.priority === 'high' ? '#ffebeb' : '#ebf5eb',
-                  color: t.priority === 'high' ? '#cc0000' : '#006600',
-                  padding: '2px 8px',
-                  borderRadius: 12,
-                  fontSize: 12
-                }}>
-                  {t.priority || 'normal'}
-                </span>
-              </td>
+              <td style={{ padding: 8 }}>{t.status}</td>              
               <td style={{ padding: 8 }}>{t.createdAt?.slice(0, 10)}</td>
             </tr>
           ))}
